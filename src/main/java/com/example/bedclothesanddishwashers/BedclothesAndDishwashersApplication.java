@@ -1,0 +1,13 @@
+package com.example.bedclothesanddishwashers;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class BedclothesAndDishwashersApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(BedclothesAndDishwashersApplication.class, args);
+    }
+
+}
