@@ -6,3 +6,6 @@
 | added controllers           | 17/04/2023 | 17/04/2023 | added controller classes                                                  |
 | added data transfer objects | 17/04/2023 | 17/04/2023 | added data transfer objects                                               |
 | added mappers               | 17/04/2023 | 17/04/2023 | added mappers converting data transfer objects to entities and vice versa |
+| added repositories          | 17/04/2023 | 17/04/2023 | added repository interfaces and their implementations                     |
+| added services              | 17/04/2023 | 17/04/2023 | added service interfaces and their implementations                        |     
+| added exceptions            | 17/04/2023 | 17/04/2023 | added custom entity not found exception                                   |
