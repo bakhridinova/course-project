@@ -5,6 +5,8 @@ import com.epam.uni.entity.Linen;
 import org.mapstruct.Mapper;
 
 /**
+ * mapper converting linen to linen dto and vice versa
+ *
  * @author bakhridinova
  */
 

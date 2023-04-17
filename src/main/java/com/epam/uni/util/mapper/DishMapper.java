@@ -5,6 +5,8 @@ import com.epam.uni.entity.Dish;
 import org.mapstruct.Mapper;
 
 /**
+ * mapper converting dish to dish dto and vice versa
+ *
  * @author bakhridinova
  */
 

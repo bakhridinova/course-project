@@ -7,12 +7,6 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * repository for handling CRUD operations on linens
- *
- * @author bakhridinova
- */
-
 @Component
 public class LinenRepositoryImpl implements LinenRepository {
     @Override

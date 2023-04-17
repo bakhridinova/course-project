@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 /**
+ * service holding business logic for dishes
+ *
  * @author bakhridinova
  */
 

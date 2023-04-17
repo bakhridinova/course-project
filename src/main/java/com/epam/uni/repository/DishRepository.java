@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 /**
+ * repository for handling CRUD operations on dishes
+ *
  * @author bakhridinova
  */
 

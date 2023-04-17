@@ -11,12 +11,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * service holding business logic for linens
- *
- * @author bakhridinova
- */
-
 @Service
 @RequiredArgsConstructor
 public class LinenServiceImpl implements LinenService {

@@ -9,3 +9,4 @@
 | added repositories          | 17/04/2023 | 17/04/2023 | added repository interfaces and their implementations                     |
 | added services              | 17/04/2023 | 17/04/2023 | added service interfaces and their implementations                        |     
 | added exceptions            | 17/04/2023 | 17/04/2023 | added custom entity not found exception                                   |
+| added tests                 | 17/04/2023 | 17/04/23   | added repository, service and mapper tests                                |

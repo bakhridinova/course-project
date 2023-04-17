@@ -4,7 +4,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * main application class
+ * main configuration class
  *
  * @author bakhridinova
  */
