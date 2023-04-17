@@ -1,7 +1,5 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.0.5'
-    id 'io.spring.dependency-management' version '1.1.0'
 }
 
 group = 'com.example'
@@ -20,15 +18,18 @@ repositories {
 
 dependencies {
 
-    implementation "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
-    implementation "org.springframework.boot:spring-boot-starter-hateoas:$springBootVersion"
-    implementation "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
-    implementation "org.springframework.boot:spring-boot-starter-validation:$springBootVersion"
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    annotationProcessor "org.mapstruct:mapstruct-processor:$mapstructVersion"
+
+    implementation "org.projectlombok:lombok:$lombokVersion"
+    implementation "org.mapstruct:mapstruct:$mapstructVersion"
+
+    implementation "org.springframework:spring-core:$springVersion"
+    implementation "org.springframework:spring-context:$springVersion"
+
+    testImplementation "org.junit.jupiter:junit-jupiter:$jUnitVersion"
+    testImplementation "org.springframework:spring-test:$springVersion"
 }
 
-tasks.named('test') {
+test {
     useJUnitPlatform()
 }
