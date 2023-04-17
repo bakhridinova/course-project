@@ -1,12 +1,14 @@
 package com.epam.uni.entity;
 
+import lombok.Data;
+
 /**
+ * marker class representing suppliances
+ *
  * @author bakhridinova
  */
 
-public abstract class Suppliance {
-    protected Long id;
-    protected Double price;
-    protected String description;
-    protected Integer leftInStock;
+@Data
+public class Suppliance {
+
 }
