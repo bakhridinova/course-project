@@ -3,7 +3,6 @@ package com.epam.uni.repository;
 import com.epam.uni.entity.Linen;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * repository for handling CRUD operations on linens
@@ -11,12 +10,12 @@ import java.util.Optional;
  * @author bakhridinova
  */
 
-public interface LinenRepository extends CustomRepository<Linen> {
+public interface LinenRepository extends BaseRepository<Linen> {
     @Override
     List<Linen> findAll();
 
     @Override
-    Optional<Linen> findById(Long id);
+    Linen findById(Long id);
 
     @Override
     List<Linen> findByCategory(Enum<?> category);

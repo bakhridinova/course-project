@@ -1,32 +1,56 @@
 package com.epam.uni.repository.impl;
 
 import com.epam.uni.entity.Linen;
+import com.epam.uni.exception.CustomEntityNotFoundException;
 import com.epam.uni.repository.LinenRepository;
-import org.springframework.stereotype.Component;
+import com.opencsv.bean.CsvToBeanBuilder;
+import com.opencsv.bean.StatefulBeanToCsv;
+import com.opencsv.exceptions.CsvDataTypeMismatchException;
+import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.Objects;
 
-@Component
+@Repository
+@RequiredArgsConstructor
 public class LinenRepositoryImpl implements LinenRepository {
-    @Override
-    public List<Linen> findAll() {
-        return null;
+    private final ObjectProvider<CsvToBeanBuilder<Linen>> linenBeanBuilderProvider;
+    private final ObjectProvider<StatefulBeanToCsv<Linen>> linenBeanWriterProvider;
+
+    private List<Linen> getParsedLinens() {
+        return Objects.requireNonNull(linenBeanBuilderProvider.getIfAvailable())
+                .withType(Linen.class).build().parse();
     }
 
     @Override
-    public Optional<Linen> findById(Long id) {
-        return Optional.empty();
+    public List<Linen> findAll() {
+        return getParsedLinens();
+    }
+
+    @Override
+    public Linen findById(Long id) {
+        return getParsedLinens().stream()
+                .filter(linen -> linen.getId().equals(id)).findAny()
+                .orElseThrow(() -> new CustomEntityNotFoundException("failed to find linen with id " + id));
     }
 
     @Override
     public List<Linen> findByCategory(Enum<?> category) {
-        return null;
+        return getParsedLinens().stream()
+                .filter(linen -> linen.getCategory().equals(category)).toList();
     }
 
     @Override
     public Linen create(Linen linen) {
-        return null;
+        try {
+            Objects.requireNonNull(linenBeanWriterProvider.getIfAvailable()).write(linen);
+        } catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException e) {
+            throw new RuntimeException(e);
+        }
+        return linen;
     }
 
     @Override

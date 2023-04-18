@@ -3,7 +3,6 @@ package com.epam.uni.repository;
 import com.epam.uni.entity.Suppliance;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * custom suppliance repository
@@ -11,9 +10,9 @@ import java.util.Optional;
  * @author bakhridinova
  */
 
-public interface CustomRepository<T extends Suppliance> {
+public interface BaseRepository<T extends Suppliance> {
     List<T> findAll();
-    Optional<T> findById(Long id);
+    T findById(Long id);
     List<T> findByCategory(Enum<?> category);
     T create(T t);
     T update(T t);

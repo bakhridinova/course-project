@@ -3,7 +3,6 @@ package com.epam.uni.service;
 import com.epam.uni.dto.SupplianceDto;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * custom suppliance service
@@ -11,9 +10,9 @@ import java.util.Optional;
  * @author bakhridinova
  */
 
-public interface CustomService<T extends SupplianceDto> {
+public interface BaseService<T extends SupplianceDto> {
     List<T> findAll();
-    Optional<T> findById(Long id);
+    T findById(Long id);
     List<T> findByCategory(Enum<?> category);
     T create(T t);
     T update(T t);

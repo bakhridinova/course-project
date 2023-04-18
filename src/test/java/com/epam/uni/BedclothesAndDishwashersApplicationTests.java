@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 class BedclothesAndDishwashersApplicationTests {
 
     @Test
-    void test() {
+    void contextLoads() {
 
     }
 }

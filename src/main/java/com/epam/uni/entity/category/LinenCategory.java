@@ -7,9 +7,10 @@ package com.epam.uni.entity.category;
  */
 
 public enum LinenCategory {
-    FLAT_SHEET,
+    BEDSPREAD,
     BLANKET,
+    FLAT_SHEET,
     PILLOW,
     PILLOWCASE,
-    BEDSPREAD
+    TEST
 }

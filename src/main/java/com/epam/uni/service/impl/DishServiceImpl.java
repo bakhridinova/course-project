@@ -1,20 +1,18 @@
 package com.epam.uni.service.impl;
 
 import com.epam.uni.dto.DishDto;
-import com.epam.uni.entity.Dish;
-import com.epam.uni.repository.CustomRepository;
+import com.epam.uni.repository.DishRepository;
 import com.epam.uni.service.DishService;
 import com.epam.uni.util.mapper.DishMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class DishServiceImpl implements DishService {
-    private final CustomRepository<Dish> dishRepository;
+    private final DishRepository dishRepository;
     private final DishMapper dishMapper;
 
     @Override
@@ -23,8 +21,8 @@ public class DishServiceImpl implements DishService {
     }
 
     @Override
-    public Optional<DishDto> findById(Long id) {
-        return Optional.empty();
+    public DishDto findById(Long id) {
+        return null;
     }
 
     @Override

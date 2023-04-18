@@ -1,20 +1,18 @@
 package com.epam.uni.service.impl;
 
 import com.epam.uni.dto.LinenDto;
-import com.epam.uni.entity.Linen;
-import com.epam.uni.repository.CustomRepository;
+import com.epam.uni.repository.LinenRepository;
 import com.epam.uni.service.LinenService;
 import com.epam.uni.util.mapper.LinenMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class LinenServiceImpl implements LinenService {
-    private final CustomRepository<Linen> linenRepository;
+    private final LinenRepository linenRepository;
     private final LinenMapper linenMapper;
     @Override
     public List<LinenDto> findAll() {
@@ -22,8 +20,8 @@ public class LinenServiceImpl implements LinenService {
     }
 
     @Override
-    public Optional<LinenDto> findById(Long id) {
-        return Optional.empty();
+    public LinenDto findById(Long id) {
+        return null;
     }
 
     @Override

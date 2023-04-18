@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  */
 
 @Configuration
-@ComponentScan({"com.epam.uni"})
+@ComponentScan(basePackages = "com.epam.uni")
 public class BedclothesAndDishwashersApplication {
 
     public static void main(String[] args) {

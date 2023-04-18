@@ -3,7 +3,6 @@ package com.epam.uni.service;
 import com.epam.uni.dto.LinenDto;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * service holding business logic for linens
@@ -11,12 +10,12 @@ import java.util.Optional;
  * @author bakhridinova
  */
 
-public interface LinenService extends CustomService<LinenDto> {
+public interface LinenService extends BaseService<LinenDto> {
     @Override
     List<LinenDto> findAll();
 
     @Override
-    Optional<LinenDto> findById(Long id);
+    LinenDto findById(Long id);
 
     @Override
     List<LinenDto> findByCategory(Enum<?> category);

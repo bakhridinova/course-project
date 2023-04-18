@@ -7,15 +7,16 @@ package com.epam.uni.entity.category;
  */
 
 public enum DishCategory {
-    DINNER_PLATE,
+    CUP,
+    DESSERT_BOWL,
     DESSERT_PLATE,
     DINNER_BOWL,
-    DESSERT_BOWL,
-    SPOON,
-    TEAS_SPOON,
+    DINNER_PLATE,
     FORK,
+    GLASS,
     KNIFE,
     MUG,
-    GLASS,
-    CUP
+    SPOON,
+    TEA_SPOON,
+    TEST
 }

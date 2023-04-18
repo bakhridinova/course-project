@@ -2,7 +2,7 @@ package com.epam.uni.controller;
 
 import com.epam.uni.service.DishService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 /**
  * controller for handling dish related inputs
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @author bakhridinova
  */
 
-@Component
+@Controller
 @RequiredArgsConstructor
 public class DishController {
     private final DishService dishService;

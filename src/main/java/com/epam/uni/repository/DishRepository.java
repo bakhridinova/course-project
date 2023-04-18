@@ -3,7 +3,6 @@ package com.epam.uni.repository;
 import com.epam.uni.entity.Dish;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * repository for handling CRUD operations on dishes
@@ -11,12 +10,12 @@ import java.util.Optional;
  * @author bakhridinova
  */
 
-public interface DishRepository extends CustomRepository<Dish> {
+public interface DishRepository extends BaseRepository<Dish> {
     @Override
     List<Dish> findAll();
 
     @Override
-    Optional<Dish> findById(Long id);
+    Dish findById(Long id);
 
     @Override
     List<Dish> findByCategory(Enum<?> category);
