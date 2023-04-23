@@ -16,6 +16,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  * main configuration class
@@ -112,5 +113,10 @@ public class ProjectConfiguration {
 
         return new StatefulBeanToCsvBuilder<Linen>(linenFileWriter)
                 .withMappingStrategy(linenMappingStrategy).build();
+    }
+
+    @Bean
+    public Scanner scanner() {
+        return new Scanner(System.in);
     }
 }

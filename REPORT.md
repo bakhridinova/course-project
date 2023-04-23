@@ -11,4 +11,6 @@
 | added exceptions            | 17/04/2023 | 17/04/2023 | added custom entity not found exception                                   |
 | added tests                 | 17/04/2023 | 17/04/23   | added repository, service and mapper tests                                |
 | implemented repositories    | 19/04/2023 | 19/04/2023 | implemented some of the repository methods                                |
-| added formatters            | 23/04/2023 | 23/04/2023 | added formatters formatting data transfer objects to table cells          |
+| added formatters            | 23/04/2023 | 23/04/2023 | added formatters formatting data transfer objects to table cells          || implemented services        | 23/04/2023 | 23/04/2023 | implemented service methods                                               |
+| implemented controllers     | 23/04/2023 | 23/04/2023 | implemented controller methods                                            |
+| implemented application     | 23/04/2023 | 23/04/2023 | implemented main running method in application class                      |
