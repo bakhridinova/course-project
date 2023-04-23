@@ -10,3 +10,5 @@
 | added services              | 17/04/2023 | 17/04/2023 | added service interfaces and their implementations                        |     
 | added exceptions            | 17/04/2023 | 17/04/2023 | added custom entity not found exception                                   |
 | added tests                 | 17/04/2023 | 17/04/23   | added repository, service and mapper tests                                |
+| implemented repositories    | 19/04/2023 | 19/04/2023 | implemented some of the repository methods                                |
+| added formatters            | 23/04/2023 | 23/04/2023 | added formatters formatting data transfer objects to table cells          |

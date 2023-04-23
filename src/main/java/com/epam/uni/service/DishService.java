@@ -27,5 +27,5 @@ public interface DishService extends BaseService<DishDto> {
     DishDto update(DishDto dishDto);
 
     @Override
-    void delete(DishDto dishDto);
+    void delete(Long id);
 }

@@ -18,7 +18,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * configuration class
+ * main configuration class
  *
  * @author bakhridinova
  */

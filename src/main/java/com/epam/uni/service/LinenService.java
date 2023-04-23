@@ -27,5 +27,5 @@ public interface LinenService extends BaseService<LinenDto> {
     LinenDto update(LinenDto linenDto);
 
     @Override
-    void delete(LinenDto linenDto);
+    void delete(Long id);
 }

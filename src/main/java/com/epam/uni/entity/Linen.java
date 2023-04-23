@@ -1,7 +1,7 @@
 package com.epam.uni.entity;
 
-import com.epam.uni.entity.category.LinenCategory;
-import com.epam.uni.entity.category.LinenMaterial;
+import com.epam.uni.entity.enumerator.LinenCategory;
+import com.epam.uni.entity.enumerator.LinenMaterial;
 import com.opencsv.bean.CsvBindByName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

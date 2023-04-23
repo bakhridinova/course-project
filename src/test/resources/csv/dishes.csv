@@ -1,0 +1,11 @@
+id,size,price,description,left_in_stock,category,material
+1,medium,50.9,lorem ipsum dolor sit amet,10,cup,ceramics
+2,small,37.8,consectetur adipiscing elit,23,cup,glass
+3,big,53.6,sed do eiusmod tempor incididunt,18,cup,wood
+4,medium,46.8,ut labore et dolore magna aliqua,3,dessert_bowl,wood
+5,small,29.8,Ut enim ad minim veniam,24,dessert_bowl,glass
+6,medium,60.2,quis nostrud exercitation ullamco,15,dessert_plate,metal
+7,medium,45.3,laboris nisi ut aliquip ex ea,12,dessert_plate,glass
+8,big,36.9,commodo consequat,31,dessert_plate,ceramics
+9,big,24.2,duis aute irure dolor in reprehenderit,26,dinner_bowl,glass
+10,medium,34.4,in voluptate velit esse cillum,19,dinner_bowl,metal
