@@ -14,7 +14,4 @@ public interface BaseService<T extends SupplianceDto> {
     List<T> findAll();
     T findById(Long id);
     List<T> findByCategory(Enum<?> category);
-    T create(T t);
-    T update(T t);
-    void  delete(Long id);
 }

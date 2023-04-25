@@ -1,7 +1,6 @@
 package com.epam.uni.service.impl;
 
 import com.epam.uni.dto.DishDto;
-import com.epam.uni.entity.Dish;
 import com.epam.uni.repository.DishRepository;
 import com.epam.uni.service.DishService;
 import com.epam.uni.util.mapper.DishMapper;
@@ -31,23 +30,5 @@ public class DishServiceImpl implements DishService {
     public List<DishDto> findByCategory(Enum<?> category) {
         return dishRepository.findByCategory(category).stream()
                 .map(dishMapper::toDishDto).toList();
-    }
-
-    @Override
-    public DishDto create(DishDto dishDto) {
-        return dishMapper.toDishDto(
-                dishRepository.create(dishMapper.toDish(dishDto)));
-    }
-
-    @Override
-    public DishDto update(DishDto dishDto) {
-        return dishMapper.toDishDto(
-                dishRepository.update(dishMapper.toDish(dishDto)));
-    }
-
-    @Override
-    public void delete(Long id) {
-        Dish dish = dishRepository.findById(id);
-        dishRepository.delete(dish);
     }
 }
