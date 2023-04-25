@@ -46,24 +46,4 @@ public class DishController {
         System.out.println(DishFormatter.header());
         System.out.println(DishFormatter.format(dishes));
     }
-
-    @MethodDescription(command = "cd",
-            value = "create dish")
-    public void create(DishDto dish) {
-        dishService.create(dish);
-    }
-
-    @MethodDescription(command = "ud",
-            value = "update dish")
-    public void update(DishDto dishDto) {
-        DishDto dish = dishService.update(dishDto);
-        System.out.println(DishFormatter.header());
-        System.out.println(DishFormatter.format(dish));
-    }
-
-    @MethodDescription(command = "dd",
-            value = "delete dish")
-    public void delete(Long id) {
-        dishService.delete(id);
-    }
 }
