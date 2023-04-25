@@ -28,27 +28,30 @@ public class DishController {
     public void findAll() {
         List<DishDto> dishes = dishService.findAll();
         System.out.println(DishFormatter.header());
-        System.out.println(DishFormatter.format(dishes));
+        System.out.print(DishFormatter.format(dishes));
+        System.out.println(DishFormatter.footer());
     }
 
     @MethodDescription(command = "fdbi",
             value = "find dish by id")
     public void findById() {
-        System.out.println("please, enter id of dish you want to search for");
+        System.out.print("please, enter id of dish you want to search for: ");
         Long id = scanner.nextLong();
         DishDto dish = dishService.findById(id);
         System.out.println(DishFormatter.header());
-        System.out.println(DishFormatter.format(dish));
+        System.out.print(DishFormatter.format(dish));
+        System.out.println(DishFormatter.footer());
     }
 
     @MethodDescription(command = "fdbc",
             value = "find dish by category")
     public void findByCategory() {
-        System.out.println("please, enter category of dishes you want to search for");
+        System.out.print("please, enter category of dishes you want to search for: ");
         String category = scanner.next();
         List<DishDto> dishes = dishService
                 .findByCategory(DishCategory.valueOf(category));
         System.out.println(DishFormatter.header());
-        System.out.println(DishFormatter.format(dishes));
+        System.out.print(DishFormatter.format(dishes));
+        System.out.println(DishFormatter.footer());
     }
 }

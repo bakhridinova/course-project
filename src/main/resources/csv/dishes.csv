@@ -13,7 +13,7 @@ id,size,price,description,left_in_stock,category,material
 12,big,34.7,excepteur sint occaecat,16,dinner_plate,glass
 13,medium,58.3,cupidatat non proident,25,glass,glass
 14,medium,28.6,sunt in culpa qui officia,19,mug,glass
-15,small,46.1,deserunt mollit anim id est laborum,27,tea_spoon,
+15,small,46.1,deserunt mollit anim id est laborum,27,tea_spoon,metal
 16,medium,35.7,sed ut perspiciatis unde omnis,13,spoon,wood
 17,big,80.6,iste natus error sit voluptatem,26,spoon,metal
 18,medium,72.9,accusantium doloremque,8,knife,metal

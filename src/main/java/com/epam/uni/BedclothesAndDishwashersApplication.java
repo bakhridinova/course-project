@@ -1,5 +1,6 @@
 package com.epam.uni;
 
+import com.epam.uni.util.formatter.CommandFormatter;
 import com.epam.uni.util.method.MethodDescription;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
@@ -42,6 +43,7 @@ public class BedclothesAndDishwashersApplication {
             throw new RuntimeException(e);
         }
 
+        System.out.println(CommandFormatter.header());
         Map<String, Method> methodCommands = new HashMap<>();
         context.getBeansWithAnnotation(Controller.class).values().stream()
                 .flatMap(controller -> Arrays.stream(controller.getClass().getMethods()))
@@ -49,8 +51,11 @@ public class BedclothesAndDishwashersApplication {
                 .map(method -> {
                     MethodDescription annotation = method.getAnnotation(MethodDescription.class);
                     methodCommands.put(annotation.command(), method);
-                    return annotation;
-                }).forEach(annotation -> System.out.println(annotation.command() + " / " + annotation.value()));
+                    return annotation;})
+                .map(annotation -> CommandFormatter.format(annotation.value(), annotation.command()))
+                .sorted().forEach(System.out::print);
+        System.out.print(CommandFormatter.format("quit", "q"));
+        System.out.println(CommandFormatter.footer());
 
         while (true) {
             Scanner scanner = context.getBean(Scanner.class);
