@@ -1,6 +1,7 @@
 package com.epam.uni.repository;
 
 import com.epam.uni.entity.Linen;
+import com.epam.uni.filter.SearchFilter;
 
 import java.util.List;
 
@@ -19,4 +20,7 @@ public interface LinenRepository extends BaseRepository<Linen> {
 
     @Override
     List<Linen> findByCategory(Enum<?> category);
+
+    @Override
+    List<Linen> findByFilter(SearchFilter filter);
 }

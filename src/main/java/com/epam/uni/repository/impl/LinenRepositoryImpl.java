@@ -2,6 +2,7 @@ package com.epam.uni.repository.impl;
 
 import com.epam.uni.entity.Linen;
 import com.epam.uni.exception.CustomEntityNotFoundException;
+import com.epam.uni.filter.SearchFilter;
 import com.epam.uni.repository.LinenRepository;
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.opencsv.bean.StatefulBeanToCsv;
@@ -16,7 +17,6 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class LinenRepositoryImpl implements LinenRepository {
     private final ObjectProvider<CsvToBeanBuilder<Linen>> linenBeanBuilderProvider;
-    private final ObjectProvider<StatefulBeanToCsv<Linen>> linenBeanWriterProvider;
 
     private List<Linen> getParsedLinens() {
         return Objects.requireNonNull(linenBeanBuilderProvider.getIfAvailable())
@@ -39,5 +39,10 @@ public class LinenRepositoryImpl implements LinenRepository {
     public List<Linen> findByCategory(Enum<?> category) {
         return getParsedLinens().stream()
                 .filter(linen -> linen.getCategory().equals(category)).toList();
+    }
+
+    @Override
+    public List<Linen> findByFilter(SearchFilter filter) {
+        return null;
     }
 }

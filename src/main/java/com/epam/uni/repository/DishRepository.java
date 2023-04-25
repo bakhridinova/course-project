@@ -1,6 +1,7 @@
 package com.epam.uni.repository;
 
 import com.epam.uni.entity.Dish;
+import com.epam.uni.filter.SearchFilter;
 
 import java.util.List;
 
@@ -19,4 +20,7 @@ public interface DishRepository extends BaseRepository<Dish> {
 
     @Override
     List<Dish> findByCategory(Enum<?> category);
+
+    @Override
+    List<Dish> findByFilter(SearchFilter filter);
 }
