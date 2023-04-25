@@ -19,13 +19,4 @@ public interface DishService extends BaseService<DishDto> {
 
     @Override
     List<DishDto> findByCategory(Enum<?> category);
-
-    @Override
-    DishDto create(DishDto dishDto);
-
-    @Override
-    DishDto update(DishDto dishDto);
-
-    @Override
-    void delete(Long id);
 }

@@ -19,13 +19,4 @@ public interface LinenService extends BaseService<LinenDto> {
 
     @Override
     List<LinenDto> findByCategory(Enum<?> category);
-
-    @Override
-    LinenDto create(LinenDto linenDto);
-
-    @Override
-    LinenDto update(LinenDto linenDto);
-
-    @Override
-    void delete(Long id);
 }

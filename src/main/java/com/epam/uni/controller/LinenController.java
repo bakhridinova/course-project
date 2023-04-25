@@ -46,26 +46,4 @@ public class LinenController {
         System.out.println(LinenFormatter.header());
         System.out.println(LinenFormatter.format(linens));
     }
-
-    @MethodDescription(command = "cl",
-            value = "create linen")
-    public void create(LinenDto linenDto) {
-        LinenDto linen = linenService.create(linenDto);
-        System.out.println(LinenFormatter.header());
-        System.out.println(LinenFormatter.format(linen));
-    }
-
-    @MethodDescription(command = "ul",
-            value = "update linen")
-    public void update(LinenDto linenDto) {
-        LinenDto linen = linenService.update(linenDto);
-        System.out.println(LinenFormatter.header());
-        System.out.println(LinenFormatter.format(linen));
-    }
-
-    @MethodDescription(command = "dl",
-            value = "delete linen")
-    public void delete(Long id) {
-        linenService.delete(id);
-    }
 }

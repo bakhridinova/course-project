@@ -5,8 +5,6 @@ import com.epam.uni.exception.CustomEntityNotFoundException;
 import com.epam.uni.repository.LinenRepository;
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.opencsv.bean.StatefulBeanToCsv;
-import com.opencsv.exceptions.CsvDataTypeMismatchException;
-import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.stereotype.Repository;
@@ -41,25 +39,5 @@ public class LinenRepositoryImpl implements LinenRepository {
     public List<Linen> findByCategory(Enum<?> category) {
         return getParsedLinens().stream()
                 .filter(linen -> linen.getCategory().equals(category)).toList();
-    }
-
-    @Override
-    public Linen create(Linen linen) {
-        try {
-            Objects.requireNonNull(linenBeanWriterProvider.getIfAvailable()).write(linen);
-        } catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException e) {
-            throw new RuntimeException(e);
-        }
-        return linen;
-    }
-
-    @Override
-    public Linen update(Linen linen) {
-        return null;
-    }
-
-    @Override
-    public void delete(Linen linen) {
-
     }
 }
