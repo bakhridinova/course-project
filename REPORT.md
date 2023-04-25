@@ -16,3 +16,4 @@
 | implemented controllers       | 23/04/2023 | 23/04/2023 | implemented controller methods                                            |
 | implemented application       | 23/04/2023 | 23/04/2023 | implemented main running method in application class                      |
 | removed - non read operations | 25/04/2023 | 25/04/2023 | removed non - read operations from all layers                             |
+| changed controller methods    | 25/04/2023 | 25/04/2023 | updated find by methods in controllers                                    |

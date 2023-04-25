@@ -33,7 +33,9 @@ public class DishController {
 
     @MethodDescription(command = "fdbi",
             value = "find dish by id")
-    public void findById(Long id) {
+    public void findById() {
+        System.out.println("please, enter id of dish you want to search for");
+        Long id = scanner.nextLong();
         DishDto dish = dishService.findById(id);
         System.out.println(DishFormatter.header());
         System.out.println(DishFormatter.format(dish));
@@ -41,8 +43,11 @@ public class DishController {
 
     @MethodDescription(command = "fdbc",
             value = "find dish by category")
-    public void findByCategory(String category) {
-        List<DishDto> dishes = dishService.findByCategory(DishCategory.TEST);
+    public void findByCategory() {
+        System.out.println("please, enter category of dishes you want to search for");
+        String category = scanner.next();
+        List<DishDto> dishes = dishService
+                .findByCategory(DishCategory.valueOf(category));
         System.out.println(DishFormatter.header());
         System.out.println(DishFormatter.format(dishes));
     }
