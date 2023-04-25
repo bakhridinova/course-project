@@ -3,7 +3,6 @@ package com.epam.uni.entity;
 import com.epam.uni.entity.enumerator.LinenCategory;
 import com.epam.uni.entity.enumerator.LinenMaterial;
 import com.opencsv.bean.CsvBindByName;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,26 +15,20 @@ import lombok.NoArgsConstructor;
  */
 
 @Data
-@Builder
 @NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class Linen extends Suppliance {
-    @CsvBindByName
-    private Long id;
-
-    @CsvBindByName
-    private Double price;
-
-    @CsvBindByName
-    private String description;
-
-    @CsvBindByName(column = "left_in_stock")
-    private Integer leftInStock;
-
     @CsvBindByName
     private LinenCategory category;
 
     @CsvBindByName
     private LinenMaterial material;
+
+    @Builder
+    private Linen(Long id, Double price, String description, Integer leftInStock,
+                  LinenCategory category, LinenMaterial material) {
+        super(id, price, description, leftInStock);
+        this.category = category;
+        this.material = material;
+    }
 }
