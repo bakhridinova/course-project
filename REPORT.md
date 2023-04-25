@@ -18,3 +18,4 @@
 | removed - non read operations | 25/04/2023 | 25/04/2023 | removed non - read operations from all layers                             |
 | changed controller methods    | 25/04/2023 | 25/04/2023 | updated find by methods in controllers                                    |
 | changed entities              | 25/04/2023 | 25/04/2023 | updated entity states that can be inherited                               |
+| changed data transfer objects | 25/04/2023 | 25/04/2023 | updated data transfer object states that can be inherited                 |
