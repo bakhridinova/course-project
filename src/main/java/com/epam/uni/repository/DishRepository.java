@@ -19,13 +19,4 @@ public interface DishRepository extends BaseRepository<Dish> {
 
     @Override
     List<Dish> findByCategory(Enum<?> category);
-
-    @Override
-    Dish create(Dish dish);
-
-    @Override
-    Dish update(Dish dish);
-
-    @Override
-    void delete(Dish dish);
 }

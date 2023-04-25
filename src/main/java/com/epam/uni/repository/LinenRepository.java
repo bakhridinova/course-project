@@ -19,13 +19,4 @@ public interface LinenRepository extends BaseRepository<Linen> {
 
     @Override
     List<Linen> findByCategory(Enum<?> category);
-
-    @Override
-    Linen create(Linen linen);
-
-    @Override
-    Linen update(Linen linen);
-
-    @Override
-    void delete(Linen linen);
 }

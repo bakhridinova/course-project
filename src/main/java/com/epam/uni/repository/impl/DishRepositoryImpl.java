@@ -5,8 +5,6 @@ import com.epam.uni.exception.CustomEntityNotFoundException;
 import com.epam.uni.repository.DishRepository;
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.opencsv.bean.StatefulBeanToCsv;
-import com.opencsv.exceptions.CsvDataTypeMismatchException;
-import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.stereotype.Repository;
@@ -41,25 +39,5 @@ public class DishRepositoryImpl implements DishRepository {
     public List<Dish> findByCategory(Enum<?> category) {
         return getParsedDishes().stream()
                 .filter(dish -> dish.getCategory().equals(category)).toList();
-    }
-
-    @Override
-    public Dish create(Dish dish) {
-        try {
-            Objects.requireNonNull(dishBeanWriterProvider.getIfAvailable()).write(dish);
-        } catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException e) {
-            throw new RuntimeException(e);
-        }
-        return dish;
-    }
-
-    @Override
-    public Dish update(Dish dish) {
-        return null;
-    }
-
-    @Override
-    public void delete(Dish dish) {
-
     }
 }
