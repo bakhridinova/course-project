@@ -1,4 +1,4 @@
-package com.epam.uni.entity.enumerator;
+package com.epam.uni.entity.enums;
 
 /**
  * enum representing suppliance sizes

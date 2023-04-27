@@ -1,4 +1,4 @@
-package com.epam.uni.entity.enumerator;
+package com.epam.uni.entity.enums;
 
 /**
  * enum representing different materials linens
@@ -17,5 +17,5 @@ public enum LinenMaterial {
     SILK, // щелк
     VELVET, // бархат
     WOOL, // щерсть
-    TEST
+    TEST;
 }

@@ -1,4 +1,4 @@
-package com.epam.uni.entity.enumerator;
+package com.epam.uni.entity.enums;
 
 /**
  * enum representing different categories of bed linens
@@ -12,5 +12,5 @@ public enum LinenCategory {
     FLAT_SHEET,
     PILLOW,
     PILLOWCASE,
-    TEST
+    TEST;
 }
