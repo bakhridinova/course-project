@@ -26,11 +26,10 @@ public interface BaseFacade<T extends SupplianceDto> {
                 !sortType.equals("l")) {
 
             if (sortType.equals("skip")) {
-                sortType = "d";
                 break;
             }
 
-            System.out.print("please enter either p or l");
+            System.out.print("please enter either p or l: ");
             sortType = scanner.next();
         }
         return sortType;
@@ -43,11 +42,10 @@ public interface BaseFacade<T extends SupplianceDto> {
         while (!sortOrder.equals("a") &&
                 !sortOrder.equals("d")) {
             if (sortOrder.equals("skip")) {
-                sortOrder = "a";
                 break;
             }
 
-            System.out.print("please enter either a or d");
+            System.out.print("please enter either a or d: ");
             sortOrder = scanner.next();
         }
         return sortOrder;
@@ -56,19 +54,18 @@ public interface BaseFacade<T extends SupplianceDto> {
     default String getCategory(Scanner scanner, Class<T> tclass, Enum<?>[] categoryEnum) {
         System.out.println("please enter category of " + getClassName(tclass) +
                 "s to search for, available categories: ");
-        List<String> categories =
-                Arrays.stream(categoryEnum).map(Enum::name).toList();
-        categories.forEach(c -> System.out.print(c.toLowerCase() + ", "));
+        List<String> categories = Arrays.stream(categoryEnum)
+                .map(Enum::name).map(String::toLowerCase).toList();
+        categories.forEach(c -> System.out.print(c + ", "));
         System.out.println("skip to skip: ");
         String category = scanner.next();
 
         while (!categories.contains(category)) {
             if (category.equals("skip")) {
-                category = null;
                 break;
             }
 
-            System.out.println("please enter valid category");
+            System.out.print("please enter valid category: ");
             category = scanner.next();
         }
         return category;
@@ -77,18 +74,18 @@ public interface BaseFacade<T extends SupplianceDto> {
     default String getMaterial(Scanner scanner, Class<T> tClass, Enum<?>[] materialEnum) {
         System.out.println("please enter material of " + getClassName(tClass) +
                 "s to search for, available materials: ");
-        List<String> materials = Arrays.stream(materialEnum).map(Enum::name).toList();
-        materials.forEach(c -> System.out.print(c.toLowerCase() + ", "));
+        List<String> materials = Arrays.stream(materialEnum)
+                .map(Enum::name).map(String::toLowerCase).toList();
+        materials.forEach(c -> System.out.print(c + ", "));
         System.out.println("skip to skip");
         String material = scanner.next();
 
         while (!materials.contains(material)) {
             if (material.equals("skip")) {
-                material = null;
                 break;
             }
 
-            System.out.println("please enter valid material");
+            System.out.print("please enter valid material: ");
             material = scanner.next();
         }
         return material;
@@ -97,11 +94,7 @@ public interface BaseFacade<T extends SupplianceDto> {
     default String getDescription(Scanner scanner, Class<T> tClass) {
         System.out.print("please enter description by which " + getClassName(tClass) +
                 "s should be searched or skip to skip: ");
-        String description = scanner.next();
-        if (description.equals("skip")) {
-            description = "";
-        }
-        return description;
+        return scanner.next();
     }
 
     default String getClassName(Class<T> tClass) {

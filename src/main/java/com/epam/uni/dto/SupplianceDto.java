@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * marker data transfer object class representing suppliances
+ * data transfer object class representing suppliances
  *
  * @author bakhridinova
  */

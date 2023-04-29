@@ -2,7 +2,9 @@ package com.epam.uni.facade.impl;
 
 import com.epam.uni.dto.LinenDto;
 import com.epam.uni.entity.enums.LinenCategory;
+import com.epam.uni.entity.enums.LinenMaterial;
 import com.epam.uni.facade.BaseFacade;
+import com.epam.uni.filter.SearchFilter;
 import com.epam.uni.service.LinenService;
 import com.epam.uni.util.formatter.LinenFormatter;
 import lombok.RequiredArgsConstructor;
@@ -48,6 +50,15 @@ public class LinenFacade implements BaseFacade<LinenDto> {
 
     @Override
     public void findByFilter() {
-
+        String sortType = getSortType(scanner, LinenDto.class);
+        String sortOrder = getSortOrder(scanner, LinenDto.class);
+        String category = getCategory(scanner, LinenDto.class, LinenCategory.values());
+        String material = getMaterial(scanner, LinenDto.class, LinenMaterial.values());
+        String description = getDescription(scanner, LinenDto.class);
+        SearchFilter searchFilter = new SearchFilter(sortType, sortOrder, category, material, description);
+        List<LinenDto> linens = linenService.findByFilter(searchFilter);
+        System.out.println(LinenFormatter.header());
+        System.out.print(LinenFormatter.format(linens));
+        System.out.println(LinenFormatter.footer());
     }
 }

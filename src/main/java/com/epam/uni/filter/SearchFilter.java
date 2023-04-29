@@ -9,4 +9,15 @@ package com.epam.uni.filter;
 public record SearchFilter(String sortType, String sortOrder,
                            String category, String material,
                            String description) {
+    public boolean isDescending() {
+        return sortOrder.equals("d");
+    }
+
+    public String material() {
+        return material.toUpperCase();
+    }
+
+    public String category() {
+        return category.toUpperCase();
+    }
 }

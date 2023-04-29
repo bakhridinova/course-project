@@ -1,15 +1,16 @@
 package com.epam.uni.repository.impl;
 
 import com.epam.uni.entity.Linen;
+import com.epam.uni.entity.Suppliance;
 import com.epam.uni.exception.CustomEntityNotFoundException;
 import com.epam.uni.filter.SearchFilter;
 import com.epam.uni.repository.LinenRepository;
 import com.opencsv.bean.CsvToBeanBuilder;
-import com.opencsv.bean.StatefulBeanToCsv;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.stereotype.Repository;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,6 +44,14 @@ public class LinenRepositoryImpl implements LinenRepository {
 
     @Override
     public List<Linen> findByFilter(SearchFilter filter) {
-        return null;
+        Comparator<Suppliance> comparator = getComparators()
+                .getOrDefault(filter.sortType(), Comparator.comparing(Suppliance::getId));
+        if (filter.isDescending()) {
+            comparator = comparator.reversed();
+        }
+        return getParsedLinens().stream()
+                .filter(getPredicate(filter))
+                .sorted(comparator)
+                .toList();
     }
 }
