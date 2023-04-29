@@ -1,8 +1,8 @@
 package com.epam.uni.util.formatter;
 
 import com.epam.uni.dto.LinenDto;
-import com.epam.uni.util.formatter.format.DecimalToTwoPointsFormatter;
-import com.epam.uni.util.formatter.format.StringWithUnderScoreFormatter;
+import com.epam.uni.util.formatter.simpleformat.DecimalToTwoPointsFormatter;
+import com.epam.uni.util.formatter.simpleformat.StringWithUnderScoreFormatter;
 import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.StringUtils;
 

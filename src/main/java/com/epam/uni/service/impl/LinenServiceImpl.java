@@ -1,6 +1,7 @@
 package com.epam.uni.service.impl;
 
 import com.epam.uni.dto.LinenDto;
+import com.epam.uni.filter.SearchFilter;
 import com.epam.uni.repository.LinenRepository;
 import com.epam.uni.service.LinenService;
 import com.epam.uni.util.mapper.LinenMapper;
@@ -28,6 +29,12 @@ public class LinenServiceImpl implements LinenService {
     @Override
     public List<LinenDto> findByCategory(Enum<?> category) {
         return linenRepository.findByCategory(category).stream()
+                .map(linenMapper::toLinenDto).toList();
+    }
+
+    @Override
+    public List<LinenDto> findByFilter(SearchFilter filter) {
+        return linenRepository.findByFilter(filter).stream()
                 .map(linenMapper::toLinenDto).toList();
     }
 }

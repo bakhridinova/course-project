@@ -2,11 +2,11 @@ package com.epam.uni.util.generator;
 
 import com.epam.uni.entity.Dish;
 import com.epam.uni.entity.Linen;
-import com.epam.uni.entity.enumerator.DishCategory;
-import com.epam.uni.entity.enumerator.DishMaterial;
-import com.epam.uni.entity.enumerator.LinenCategory;
-import com.epam.uni.entity.enumerator.LinenMaterial;
-import com.epam.uni.entity.enumerator.Size;
+import com.epam.uni.entity.enums.DishCategory;
+import com.epam.uni.entity.enums.DishMaterial;
+import com.epam.uni.entity.enums.LinenCategory;
+import com.epam.uni.entity.enums.LinenMaterial;
+import com.epam.uni.entity.enums.Size;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass

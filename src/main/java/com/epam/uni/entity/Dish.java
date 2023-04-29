@@ -1,8 +1,8 @@
 package com.epam.uni.entity;
 
-import com.epam.uni.entity.enumerator.DishCategory;
-import com.epam.uni.entity.enumerator.DishMaterial;
-import com.epam.uni.entity.enumerator.Size;
+import com.epam.uni.entity.enums.DishCategory;
+import com.epam.uni.entity.enums.DishMaterial;
+import com.epam.uni.entity.enums.Size;
 import com.opencsv.bean.CsvBindByName;
 import lombok.Builder;
 import lombok.Data;

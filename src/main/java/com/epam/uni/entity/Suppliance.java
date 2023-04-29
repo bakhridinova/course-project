@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * marker class representing suppliances
+ * class representing suppliances
  *
  * @author bakhridinova
  */

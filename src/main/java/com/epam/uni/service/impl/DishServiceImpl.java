@@ -1,6 +1,7 @@
 package com.epam.uni.service.impl;
 
 import com.epam.uni.dto.DishDto;
+import com.epam.uni.filter.SearchFilter;
 import com.epam.uni.repository.DishRepository;
 import com.epam.uni.service.DishService;
 import com.epam.uni.util.mapper.DishMapper;
@@ -29,6 +30,12 @@ public class DishServiceImpl implements DishService {
     @Override
     public List<DishDto> findByCategory(Enum<?> category) {
         return dishRepository.findByCategory(category).stream()
+                .map(dishMapper::toDishDto).toList();
+    }
+
+    @Override
+    public List<DishDto> findByFilter(SearchFilter filter) {
+        return dishRepository.findByFilter(filter).stream()
                 .map(dishMapper::toDishDto).toList();
     }
 }

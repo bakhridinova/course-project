@@ -1,4 +1,4 @@
-package com.epam.uni.entity.enumerator;
+package com.epam.uni.entity.enums;
 
 /**
  * enum representing different categories of dishes
@@ -18,5 +18,5 @@ public enum DishCategory {
     MUG,
     SPOON,
     TEA_SPOON,
-    TEST
+    TEST;
 }

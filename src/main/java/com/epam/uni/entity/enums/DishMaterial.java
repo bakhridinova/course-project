@@ -1,4 +1,4 @@
-package com.epam.uni.entity.enumerator;
+package com.epam.uni.entity.enums;
 
 /**
  * enum representing different materials dishes
@@ -14,5 +14,5 @@ public enum DishMaterial {
     PAPER, // бумажные
     PLASTIC, // пластмассовые
     WOOD, // деревянные
-    TEST
+    TEST;
 }

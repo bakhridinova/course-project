@@ -1,6 +1,7 @@
 package com.epam.uni.service;
 
 import com.epam.uni.dto.DishDto;
+import com.epam.uni.filter.SearchFilter;
 
 import java.util.List;
 
@@ -19,4 +20,7 @@ public interface DishService extends BaseService<DishDto> {
 
     @Override
     List<DishDto> findByCategory(Enum<?> category);
+
+    @Override
+    List<DishDto> findByFilter(SearchFilter filter);
 }
