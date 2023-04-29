@@ -1,12 +1,14 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.0.5'
-    id 'io.spring.dependency-management' version '1.1.0'
 }
 
-group = 'com.example'
+group = 'com.epam.uni'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
+
+compileJava {
+    options.compilerArgs << '-parameters'
+}
 
 configurations {
     compileOnly {
@@ -19,15 +21,22 @@ repositories {
 }
 
 dependencies {
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
 
-    implementation "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
-    implementation "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
-    implementation "org.springframework.boot:spring-boot-starter-validation:$springBootVersion"
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.mapstruct:mapstruct-processor:$mapstructVersion"
+
+    implementation "com.opencsv:opencsv:5.7.1"
+    implementation "org.mapstruct:mapstruct:$mapstructVersion"
+
+    implementation "org.springframework:spring-core:$springVersion"
+    implementation "org.springframework:spring-context:$springVersion"
+
+    testImplementation "org.projectlombok:lombok:$lombokVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter:$jUnitVersion"
+    testImplementation "org.springframework:spring-test:$springVersion"
 }
 
-tasks.named('test') {
+test {
     useJUnitPlatform()
 }

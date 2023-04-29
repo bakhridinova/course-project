@@ -1,0 +1,21 @@
+id,price,description,left_in_stock,category,material
+1,50.9,lorem ipsum dolor sit amet,10,bedspread,chiffon
+2,37.8,consectetur adipiscing elit,23,bedspread,denim
+3,53.6,sed do eiusmod tempor incididunt,18,bedspread,linen
+4,46.8,ut labore et dolore magna aliqua,3,blanket,linen
+5,29.8,Ut enim ad minim veniam,24,blanket,velvet
+6,60.2,quis nostrud exercitation ullamco,15,blanket,silk
+7,45.3,laboris nisi ut aliquip ex ea,12,flat_sheet,rubber
+8,36.9,commodo consequat,31,flat_sheet,denim
+9,24.2,duis aute irure dolor in reprehenderit,26,flat_sheet,silk
+10,34.4,in voluptate velit esse cillum,19,flat_sheet,wool
+11,65.2,dolore eu fugiat nulla pariatur,7,pillow,fur
+12,34.7,excepteur sint occaecat,16,pillow,denim
+13,58.3,cupidatat non proident,25,pillow,silk
+14,28.6,sunt in culpa qui officia,19,pillow,wool
+15,46.1,deserunt mollit anim id est laborum,27,pillow,linen
+16,35.7,sed ut perspiciatis unde omnis,13,pillowcase,wool
+17,80.6,iste natus error sit voluptatem,26,pillowcase,denim
+18,72.9,accusantium doloremque,8,pillowcase,leather
+19,68.2,laudantium totam rem,36,pillowcase,silk
+20,56.9,aperiam eaque ipsa,21,pillowcase,linen

@@ -1,0 +1,18 @@
+
+********************************************************
+
+Warehouse Search System: Bed Linens and Dishes Warehouse
+
+Creation date: 10 April 2023
+Version: 1.0
+
+************
+
+Author: Leyla Bakhridinova
+References: https://github.com/bakhridinova
+            https://www.linkedin.com/in/bakhridinova
+
+****************************************************
+
+Available commands:
+
