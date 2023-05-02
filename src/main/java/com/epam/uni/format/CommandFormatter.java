@@ -1,4 +1,4 @@
-package com.epam.uni.util.formatter;
+package com.epam.uni.format;
 
 import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.StringUtils;

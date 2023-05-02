@@ -14,27 +14,16 @@ import java.util.function.Predicate;
  */
 
 public interface LinenRepository extends BaseRepository<Linen> {
-    @Override
-    List<Linen> findAll();
-
-    @Override
-    Linen findById(Long id);
-
-    @Override
-    List<Linen> findByCategory(Enum<?> category);
-
-    @Override
-    List<Linen> findByFilter(SearchFilter filter);
 
     @Override
     default Predicate<Linen> getPredicate(SearchFilter filter) {
         List<Predicate<Linen>> predicates = new LinkedList<>();
-        if (!filter.category().equals("skip".toUpperCase())) {
+        if (!filter.category().equals("s".toUpperCase())) {
             predicates.add(linen -> linen.getCategory().name()
                     .equals(filter.category()));
         }
 
-        if (!filter.material().equals("skip".toUpperCase())) {
+        if (!filter.material().equals("s".toUpperCase())) {
             predicates.add(linen -> linen.getMaterial().name()
                     .equals(filter.material()));
         }

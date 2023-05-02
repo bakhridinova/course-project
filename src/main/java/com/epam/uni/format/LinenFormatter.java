@@ -1,10 +1,9 @@
-package com.epam.uni.util.formatter;
+package com.epam.uni.format;
 
 import com.epam.uni.dto.LinenDto;
-import com.epam.uni.util.formatter.simpleformat.DecimalToTwoPointsFormatter;
-import com.epam.uni.util.formatter.simpleformat.StringWithUnderScoreFormatter;
-import lombok.experimental.UtilityClass;
+import com.epam.uni.format.simpleformat.StringWithUnderScoreFormatter;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -14,8 +13,8 @@ import java.util.List;
  * @author bakhridinova
  */
 
-@UtilityClass
-public class LinenFormatter {
+@Component
+public class LinenFormatter implements BaseFormatter<LinenDto> {
     public String header() {
         return StringUtils.repeat("—", 133) +
                 String.format("\n| %-10s| %-15s| %-40s| %-20s| %-20s| %-15s| \n",
@@ -24,9 +23,9 @@ public class LinenFormatter {
     }
 
     public String format(LinenDto linen) {
-        return String.format("| %-10d| %-15s| %-40s| %-20s| %-20s| %-15d| \n",
+        return String.format("| %-10d| %10.2f| %-40s| %-20s| %-20s| %-15d| \n",
                 linen.getId(),
-                DecimalToTwoPointsFormatter.format(linen.getPrice()),
+                linen.getPrice(),
                 linen.getDescription(),
                 StringWithUnderScoreFormatter.format(linen.getCategory()),
                 StringWithUnderScoreFormatter.format(linen.getMaterial()),
@@ -35,7 +34,7 @@ public class LinenFormatter {
 
     public String format(List<LinenDto> linens) {
         StringBuilder formatted = new StringBuilder();
-        linens.forEach(dish -> formatted.append(format(dish)));
+        linens.forEach(linen -> formatted.append(format(linen)));
         return formatted.toString();
     }
 

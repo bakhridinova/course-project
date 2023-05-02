@@ -1,4 +1,4 @@
-package com.epam.uni.util.formatter.simpleformat;
+package com.epam.uni.format.simpleformat;
 
 import lombok.experimental.UtilityClass;
 

@@ -1,10 +1,9 @@
-package com.epam.uni.util.formatter;
+package com.epam.uni.format;
 
 import com.epam.uni.dto.DishDto;
-import com.epam.uni.util.formatter.simpleformat.DecimalToTwoPointsFormatter;
-import com.epam.uni.util.formatter.simpleformat.StringWithUnderScoreFormatter;
-import lombok.experimental.UtilityClass;
+import com.epam.uni.format.simpleformat.StringWithUnderScoreFormatter;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -14,8 +13,8 @@ import java.util.List;
  * @author bakhridinova
  */
 
-@UtilityClass
-public class DishFormatter {
+@Component
+public class DishFormatter implements BaseFormatter<DishDto> {
 
     public String header() {
         return StringUtils.repeat("—", 140) +
@@ -25,10 +24,10 @@ public class DishFormatter {
     }
 
     public String format(DishDto dish) {
-        return String.format("| %-10d| %-10s| %-10s| %-40s| %-20s| %-20s| %-15d| \n",
+        return String.format("| %-10d| %-10s| %10.2f| %-40s| %-20s| %-20s| %-15d| \n",
                 dish.getId(),
                 StringWithUnderScoreFormatter.format(dish.getSize()),
-                DecimalToTwoPointsFormatter.format(dish.getPrice()),
+                dish.getPrice(),
                 dish.getDescription(),
                 StringWithUnderScoreFormatter.format(dish.getCategory()),
                 StringWithUnderScoreFormatter.format(dish.getMaterial()),

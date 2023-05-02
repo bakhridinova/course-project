@@ -1,6 +1,6 @@
 package com.epam.uni;
 
-import com.epam.uni.util.formatter.CommandFormatter;
+import com.epam.uni.format.CommandFormatter;
 import com.epam.uni.util.method.MethodDescription;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
@@ -24,6 +24,10 @@ import java.util.Scanner;
 
 @Component
 public class BedclothesAndDishwashersApplication {
+    private static final String QUIT_DESCRIPTION =
+            "quit";
+    private static final String QUIT_COMMAND =
+            "q";
     private static final String WELCOME_PAGE_PATH =
             "src/main/resources/static/welcome_page.txt";
     private static final AnnotationConfigApplicationContext context =
@@ -54,13 +58,13 @@ public class BedclothesAndDishwashersApplication {
                     return annotation;})
                 .map(annotation -> CommandFormatter.format(annotation.value(), annotation.command()))
                 .sorted().forEach(System.out::print);
-        System.out.print(CommandFormatter.format("quit", "q"));
+        System.out.print(CommandFormatter.format(QUIT_DESCRIPTION, QUIT_COMMAND));
         System.out.println(CommandFormatter.footer());
 
         while (true) {
             Scanner scanner = context.getBean(Scanner.class);
             String command = scanner.next();
-            if (command.equals("q")) {
+            if (command.equals(QUIT_COMMAND)) {
                 System.out.println("it was nice to be with you ^^");
                 break;
             }

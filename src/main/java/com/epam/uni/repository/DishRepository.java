@@ -14,31 +14,20 @@ import java.util.function.Predicate;
  */
 
 public interface DishRepository extends BaseRepository<Dish> {
-    @Override
-    List<Dish> findAll();
-
-    @Override
-    Dish findById(Long id);
-
-    @Override
-    List<Dish> findByCategory(Enum<?> category);
-
-    @Override
-    List<Dish> findByFilter(SearchFilter filter);
 
     default Predicate<Dish> getPredicate(SearchFilter filter) {
         List<Predicate<Dish>> predicates = new LinkedList<>();
-        if (!filter.category().equals("skip".toUpperCase())) {
+        if (!filter.category().equals("s".toUpperCase())) {
             predicates.add(dish -> dish.getCategory().name()
                     .equals(filter.category()));
         }
 
-        if (!filter.material().equals("skip".toUpperCase())) {
+        if (!filter.material().equals("s".toUpperCase())) {
             predicates.add(dish -> dish.getMaterial().toString()
                     .equals(filter.material()));
         }
 
-        if (!filter.description().equals("skip")) {
+        if (!filter.description().equals("s")) {
             predicates.add(dish -> dish.getDescription()
                     .contains(filter.description()));
         }
