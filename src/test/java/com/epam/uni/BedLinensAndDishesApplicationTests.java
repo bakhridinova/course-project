@@ -3,7 +3,7 @@ package com.epam.uni;
 import org.junit.jupiter.api.Test;
 
 
-class BedclothesAndDishwashersApplicationTests {
+class BedLinensAndDishesApplicationTests {
 
     @Test
     void contextLoads() {

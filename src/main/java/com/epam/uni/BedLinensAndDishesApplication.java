@@ -1,7 +1,7 @@
 package com.epam.uni;
 
-import com.epam.uni.format.CommandFormatter;
-import com.epam.uni.util.method.MethodDescription;
+import com.epam.uni.util.annotation.MethodDescription;
+import com.epam.uni.util.format.impl.CommandFormatter;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -13,6 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -23,7 +24,7 @@ import java.util.Scanner;
  */
 
 @Component
-public class BedclothesAndDishwashersApplication {
+public class BedLinensAndDishesApplication {
     private static final String QUIT_DESCRIPTION =
             "quit";
     private static final String QUIT_COMMAND =
@@ -34,15 +35,17 @@ public class BedclothesAndDishwashersApplication {
             new AnnotationConfigApplicationContext("com.epam.uni");
 
     public static void main(String[] args) {
-        BedclothesAndDishwashersApplication application
-                = new BedclothesAndDishwashersApplication();
+        BedLinensAndDishesApplication application
+                = new BedLinensAndDishesApplication();
         application.run();
     }
 
     private void run() {
+        String lastLine;
         try {
-            Files.readAllLines(Paths.get(WELCOME_PAGE_PATH))
-                    .forEach(System.out::println);
+            List<String> lines = Files.readAllLines(Paths.get(WELCOME_PAGE_PATH));
+            lastLine = lines.remove(lines.size() - 1);
+            lines.forEach(System.out::println);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -60,20 +63,27 @@ public class BedclothesAndDishwashersApplication {
                 .sorted().forEach(System.out::print);
         System.out.print(CommandFormatter.format(QUIT_DESCRIPTION, QUIT_COMMAND));
         System.out.println(CommandFormatter.footer());
+        System.out.println();
 
+        Scanner scanner = context.getBean(Scanner.class);
         while (true) {
-            Scanner scanner = context.getBean(Scanner.class);
-            String command = scanner.next();
-            if (command.equals(QUIT_COMMAND)) {
-                System.out.println("it was nice to be with you ^^");
+            String command = scanner.next().toLowerCase();
+            if (command.equalsIgnoreCase(QUIT_COMMAND)) {
+                System.out.println(lastLine);
                 break;
             }
 
             if (methodCommands.containsKey(command)) {
                 Method method = methodCommands.get(command);
                 ReflectionUtils.invokeMethod(method, context.getBean(method.getDeclaringClass()));
+                System.out.println();
             } else {
-                throw new UnsupportedOperationException("operation " + command + " is not supported");
+                System.out.println("operation " + command + " is not supported");
+                System.out.print("supported operations are: " );
+                methodCommands.keySet()
+                        .forEach(c -> System.out.print(c + ", "));
+                System.out.println(QUIT_COMMAND);
+                System.out.println();
             }
         }
     }

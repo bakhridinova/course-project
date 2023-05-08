@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SupplianceDto {
+public abstract class SupplianceDto {
     private Long id;
     private Double price;
     private String description;

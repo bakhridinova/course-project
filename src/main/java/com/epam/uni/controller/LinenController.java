@@ -1,10 +1,10 @@
 package com.epam.uni.controller;
 
 import com.epam.uni.dto.LinenDto;
-import com.epam.uni.format.LinenFormatter;
 import com.epam.uni.service.LinenService;
-import com.epam.uni.util.method.MethodDescription;
-import lombok.RequiredArgsConstructor;
+import com.epam.uni.util.annotation.MethodDescription;
+import com.epam.uni.util.format.impl.LinenFormatter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.util.Scanner;
@@ -16,11 +16,16 @@ import java.util.Scanner;
  */
 
 @Controller
-@RequiredArgsConstructor
 public class LinenController extends BaseController<LinenDto> {
     private final LinenFormatter linenFormatter;
     private final LinenService linenService;
-    private final Scanner scanner;
+
+    @Autowired
+    private LinenController(Scanner scanner, LinenFormatter linenFormatter, LinenService linenService) {
+        super(scanner);
+        this.linenFormatter = linenFormatter;
+        this.linenService = linenService;
+    }
 
     @MethodDescription(command = "fal",
             value = "find all linens")
@@ -31,18 +36,18 @@ public class LinenController extends BaseController<LinenDto> {
     @MethodDescription(command = "flbi",
             value = "find linen by id")
     public void findById() {
-        findById(scanner, linenService, linenFormatter, LinenDto.class);
+        findById(linenService, linenFormatter, LinenDto.class);
     }
 
     @MethodDescription(command = "flbc",
             value = "find linen by category")
     public void findByCategory() {
-        findByCategory(scanner, linenService, linenFormatter, LinenDto.class);
+        findByCategory(linenService, linenFormatter, LinenDto.class);
     }
 
     @MethodDescription(command = "flbf",
             value = "find linen by filter")
     public void findByFilter() {
-        findByFilter(scanner, linenService, linenFormatter, LinenDto.class);
+        findByFilter(linenService, linenFormatter, LinenDto.class);
     }
 }

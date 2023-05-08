@@ -1,4 +1,4 @@
-package com.epam.uni.filter;
+package com.epam.uni.util.filter;
 
 /**
  * record holding search properties
@@ -10,7 +10,7 @@ public record SearchFilter(String sortType, String sortOrder,
                            String category, String material,
                            String description) {
     public boolean isDescending() {
-        return sortOrder.equals("d");
+        return sortOrder.equalsIgnoreCase("d");
     }
 
     public String material() {

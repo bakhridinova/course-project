@@ -32,6 +32,12 @@ public class ProjectConfiguration {
         return "src/main/resources/csv/linens.csv";
     }
 
+    /**
+     * bean mapping csv rows into dish
+     *
+     * @param dishFilePath path to file holding dish data
+     * @return dish bean builder
+     */
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     public CsvToBeanBuilder<Dish> dishBeanBuilder(String dishFilePath) {
@@ -45,6 +51,12 @@ public class ProjectConfiguration {
         return new CsvToBeanBuilder<>(dishFileReader);
     }
 
+    /**
+     * bean mapping csv rows into linen
+     *
+     * @param linenFilePath path to file holding linen data
+     * @return linen bean builder
+     */
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     public CsvToBeanBuilder<Linen> linenBeanBuilder(String linenFilePath) {
@@ -57,9 +69,13 @@ public class ProjectConfiguration {
         return new CsvToBeanBuilder<>(linenFileReader);
     }
 
+    /**
+     * scanner accepting user input
+     *
+     * @return scanner
+     */
     @Bean
-    public Scanner scanner()
-    {
+    public Scanner scanner() {
         return new Scanner(System.in);
     }
 }

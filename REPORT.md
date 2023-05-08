@@ -21,3 +21,8 @@
 | changed data transfer objects | 25/04/2023 | 25/04/2023 | updated data transfer object states that can be inherited                 |
 | added filter                  | 25/04/2023 | 25/04/2023 | added search filter class                                                 |
 | changed filter                | 25/04/2023 | 25/04/2023 | added properties to search filter class                                   |
+| added abstract controller     | 03/05/2023 | 03/05/2023 | added base controller for better abstraction                              |
+| changed interfaces            | 03/05/2023 | 03/05/2023 | removed explicitly overridden methods                                     |
+| added and javadoc             | 08/05/2023 | 08/05/2023 | added javadoc                                                             |
+| changed formatters            | 08/05/2023 | 08/05/2023 | changed table formatting                                                  |
+| added tests                   | 08/05/2023 | 08/05/2023 | added repository and service tests                                        |

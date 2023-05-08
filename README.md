@@ -47,3 +47,18 @@
 | Quantity and quality of tests                                                                                                              | There are no tests in the application.                                            | Tests are available but in a non-working or unfinished state.                                         | The application contains the required number of tests (mentioned in the Data Access Layer section of this course). |
 | Error handling in the application                                                                                                          | Exceptions in code are handled incorrectly.                                       | Correct exception handling is partially implemented.                                                  | Exceptions in code are handled correctly.                                                                          |
 | Git history                                                                                                                                | There is no history in the Git repository.                                        | The Git repository has a history, but the dates do not correlate with the submitted development plan. | The Git repository has a history, but the dates do not correlate with the submitted development plan.              |
+
+
+## Available commands after launching:
+
+| command description    | command shortcut  |
+|------------------------|:------------------|
+| find all dishes        | fad               |
+| find all linens        | fal               |
+| find dish by category  | fdbc              |
+| find dish by filter    | fdbf              |
+| find dish by id        | fdbi              |
+| find linen by category | flbc              |
+| find linen by filter   | flbf              |
+| find linen by id       | flbi              |
+| quit                   | q                 |

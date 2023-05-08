@@ -1,6 +1,6 @@
-package com.epam.uni.util.method;
+package com.epam.uni.util.annotation;
 
-import com.epam.uni.BedclothesAndDishwashersApplication;
+import com.epam.uni.BedLinensAndDishesApplication;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  * custom annotation with method description and
  * short command to call it
  *
- * @see BedclothesAndDishwashersApplication#main
+ * @see BedLinensAndDishesApplication#main
  * @see com.epam.uni.controller.DishController
  * @see com.epam.uni.controller.LinenController
  * @author bakhridinova

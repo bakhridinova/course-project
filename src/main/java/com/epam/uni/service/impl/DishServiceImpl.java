@@ -1,9 +1,9 @@
 package com.epam.uni.service.impl;
 
 import com.epam.uni.dto.DishDto;
-import com.epam.uni.filter.SearchFilter;
 import com.epam.uni.repository.DishRepository;
 import com.epam.uni.service.DishService;
+import com.epam.uni.util.filter.SearchFilter;
 import com.epam.uni.util.mapper.DishMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,23 +19,23 @@ public class DishServiceImpl implements DishService {
     @Override
     public List<DishDto> findAll() {
         return dishRepository.findAll().stream()
-                .map(dishMapper::toDishDto).toList();
+                .map(dishMapper::toEntityDto).toList();
     }
 
     @Override
     public DishDto findById(Long id) {
-        return dishMapper.toDishDto(dishRepository.findById(id));
+        return dishMapper.toEntityDto(dishRepository.findById(id));
     }
 
     @Override
     public List<DishDto> findByCategory(Enum<?> category) {
         return dishRepository.findByCategory(category).stream()
-                .map(dishMapper::toDishDto).toList();
+                .map(dishMapper::toEntityDto).toList();
     }
 
     @Override
     public List<DishDto> findByFilter(SearchFilter filter) {
         return dishRepository.findByFilter(filter).stream()
-                .map(dishMapper::toDishDto).toList();
+                .map(dishMapper::toEntityDto).toList();
     }
 }

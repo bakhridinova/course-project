@@ -1,7 +1,7 @@
 package com.epam.uni.repository;
 
 import com.epam.uni.entity.Linen;
-import com.epam.uni.filter.SearchFilter;
+import com.epam.uni.util.filter.SearchFilter;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -18,17 +18,17 @@ public interface LinenRepository extends BaseRepository<Linen> {
     @Override
     default Predicate<Linen> getPredicate(SearchFilter filter) {
         List<Predicate<Linen>> predicates = new LinkedList<>();
-        if (!filter.category().equals("s".toUpperCase())) {
-            predicates.add(linen -> linen.getCategory().name()
+        if (!filter.category().equalsIgnoreCase("s")) {
+            predicates.add(linen -> linen.getCategory().toString()
                     .equals(filter.category()));
         }
 
-        if (!filter.material().equals("s".toUpperCase())) {
-            predicates.add(linen -> linen.getMaterial().name()
+        if (!filter.material().equalsIgnoreCase("s")) {
+            predicates.add(linen -> linen.getMaterial().toString()
                     .equals(filter.material()));
         }
 
-        if (filter.description() != null) {
+        if (!filter.description().equalsIgnoreCase("s")) {
             predicates.add(linen -> linen.getDescription()
                     .contains(filter.description()));
         }

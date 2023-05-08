@@ -1,9 +1,9 @@
 package com.epam.uni.service.impl;
 
 import com.epam.uni.dto.LinenDto;
-import com.epam.uni.filter.SearchFilter;
 import com.epam.uni.repository.LinenRepository;
 import com.epam.uni.service.LinenService;
+import com.epam.uni.util.filter.SearchFilter;
 import com.epam.uni.util.mapper.LinenMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,23 +18,23 @@ public class LinenServiceImpl implements LinenService {
     @Override
     public List<LinenDto> findAll() {
         return linenRepository.findAll().stream()
-                .map(linenMapper::toLinenDto).toList();
+                .map(linenMapper::toEntityDto).toList();
     }
 
     @Override
     public LinenDto findById(Long id) {
-        return linenMapper.toLinenDto(linenRepository.findById(id));
+        return linenMapper.toEntityDto(linenRepository.findById(id));
     }
 
     @Override
     public List<LinenDto> findByCategory(Enum<?> category) {
         return linenRepository.findByCategory(category).stream()
-                .map(linenMapper::toLinenDto).toList();
+                .map(linenMapper::toEntityDto).toList();
     }
 
     @Override
     public List<LinenDto> findByFilter(SearchFilter filter) {
         return linenRepository.findByFilter(filter).stream()
-                .map(linenMapper::toLinenDto).toList();
+                .map(linenMapper::toEntityDto).toList();
     }
 }

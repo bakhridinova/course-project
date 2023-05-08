@@ -21,17 +21,23 @@ repositories {
 }
 
 dependencies {
+    // lombok
     compileOnly "org.projectlombok:lombok:$lombokVersion"
-
     annotationProcessor "org.projectlombok:lombok:$lombokVersion"
     annotationProcessor "org.mapstruct:mapstruct-processor:$mapstructVersion"
 
-    implementation "com.opencsv:opencsv:5.7.1"
+    // csv
+    implementation 'com.opencsv:opencsv:5.7.1'
+
+    // mapstruct
     implementation "org.mapstruct:mapstruct:$mapstructVersion"
 
+    // spring
     implementation "org.springframework:spring-core:$springVersion"
     implementation "org.springframework:spring-context:$springVersion"
 
+    // testing
+    testImplementation 'org.mockito:mockito-core:5.2.0'
     testImplementation "org.projectlombok:lombok:$lombokVersion"
     testImplementation "org.junit.jupiter:junit-jupiter:$jUnitVersion"
     testImplementation "org.springframework:spring-test:$springVersion"

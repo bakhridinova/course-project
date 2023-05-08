@@ -1,10 +1,10 @@
 package com.epam.uni.controller;
 
 import com.epam.uni.dto.DishDto;
-import com.epam.uni.format.DishFormatter;
 import com.epam.uni.service.DishService;
-import com.epam.uni.util.method.MethodDescription;
-import lombok.RequiredArgsConstructor;
+import com.epam.uni.util.annotation.MethodDescription;
+import com.epam.uni.util.format.impl.DishFormatter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.util.Scanner;
@@ -16,11 +16,16 @@ import java.util.Scanner;
  */
 
 @Controller
-@RequiredArgsConstructor
 public class DishController extends BaseController<DishDto> {
     private final DishFormatter dishFormatter;
     private final DishService dishService;
-    private final Scanner scanner;
+
+    @Autowired
+    private DishController(Scanner scanner, DishFormatter dishFormatter, DishService dishService) {
+        super(scanner);
+        this.dishFormatter = dishFormatter;
+        this.dishService = dishService;
+    }
 
     @MethodDescription(command = "fad",
             value = "find all dishes")
@@ -31,18 +36,18 @@ public class DishController extends BaseController<DishDto> {
     @MethodDescription(command = "fdbi",
             value = "find dish by id")
     public void findById() {
-        findById(scanner, dishService, dishFormatter, DishDto.class);
+        findById(dishService, dishFormatter, DishDto.class);
     }
 
     @MethodDescription(command = "fdbc",
             value = "find dish by category")
     public void findByCategory() {
-        findByCategory(scanner, dishService, dishFormatter, DishDto.class);
+        findByCategory(dishService, dishFormatter, DishDto.class);
     }
 
     @MethodDescription(command = "fdbf",
             value = "find dish by filter")
     public void findByFilter() {
-        findByFilter(scanner, dishService, dishFormatter, DishDto.class);
+        findByFilter(dishService, dishFormatter, DishDto.class);
     }
 }
